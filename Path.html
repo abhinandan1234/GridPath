@@ -30,6 +30,10 @@
                 color:black;
                 border-color: black;
             }
+            .box::-webkit-outer-spin-button,
+            .box::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
             .bigBox{
                 height:60;
                 width:100;
@@ -130,6 +134,8 @@
             function onSubmit(){
                 m = document.getElementById("rows").value;
                 n = document.getElementById("columns").value;
+                if((m + "").length===0|| (n + "").length===0)
+                alert('Please enter both rows and columns');
                 ar = []; cost = [];
                 if(n<=8)
                 {
@@ -169,7 +175,7 @@
                     for(j=0;j<n;j++)
                     {
                         ids=i*n+j;
-                        code+="<input maxlength=\"3\" type=\"text\" class=\"box\" id=\""+ids+"\"/>";
+                        code+="<input type=\"number\" class=\"box\" id=\""+ids+"\"/>";
                     }
                     ul.innerHTML=code;
                     matrix.appendChild(ul);
